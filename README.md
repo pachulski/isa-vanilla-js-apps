@@ -8,4 +8,8 @@ Repozytorium dla Projektu nr 2.
 
 Prosty kalkulator z możliwością wpisywania dłuższych formuł matematycznych. Do obliczeń wykorzystuję bibliotekę Math.js.
 
-2020/09/09 - Kalkulator działa. Pojawiają się błędy w przypadku gdy np. nawias został niedomknięty, brak wyrażenia w nawiasie itp.
+2020/09/09 - Kalkulator działa. Pojawiają się 'błędy brzegowe' np. nawias został niedomknięty, brak wyrażenia w nawiasie itp.
+
+### Tic Tac Toe
+
+Podstawowa wersja gry wzbogacona o 'restart button' i możliwość śledzenia wyników
