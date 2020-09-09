@@ -4,26 +4,8 @@ Repozytorium dla Projektu nr 2.
 
 ## Do zrobienia
 
-### Tematy do wyboru
+### Kalkulator
 
-- Pokaz slajdów
-- Kontener z zakładkami
-- Akordeon
-- Rozwijane drzewko folderów z plikami
-- Kalkulator
-- Notatnik
-- Gry (motywy przewodnie - dopuszczalne hybrydy):
-  - snake
-  - łapanie spadających przedmiotów
-  - omijanie przeszkód
-  - labirynt
-  - podnoszenie ciężarów
-  - tic tac toe
-  - memory 
-  - puzzle
-  - tetris
-  - cookie clicker
+Prosty kalkulator z możliwością wpisywania dłuższych formuł matematycznych. Do obliczeń wykorzystuję bibliotekę Math.js.
 
-### Dla chętnych
-
-- Dodanie elementów zasilanych JavaScriptem do strony profilowej na Github Pages
+2020/09/09 - Kalkulator działa. Pojawiają się błędy w przypadku gdy np. nawias został niedomknięty, brak wyrażenia w nawiasie itp.
