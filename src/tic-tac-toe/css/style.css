@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gaegu', cursive;
+}
+
+html {
+    background: cornsilk;
+    display: grid;
+    font-family: "Lato", sans-serif;
+    font-size: 36px;
+    height: 100vh;
+    place-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.restart {
+    background: rgba(209, 209, 255, 0.65);
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.restart:hover {
+    background: rgb(209, 209, 255);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px 0;
+}
+
+.square {
+    font-size: 120px;
+    height: 150px;
+    text-align: center;
+    width: 150px;
+}
+
+.square1, .square2, .square4, .square5, .square7, .square8 {
+    border-right: 5px solid black;
+}
+
+.square4, .square5, .square6, .square7, .square8, .square9 {
+    border-top: 5px solid black;
+}
+
+.score {
+    display: grid;
+    grid-template-columns: 5fr 2fr 1fr 2fr 5fr;
+    text-align: center;
+}
+
+.resultX {
+    text-align: end;
+}
+
+.resultO {
+    text-align: start;
+}
+
+.copyright {
+    font-size: 24px;
+    line-height: 1.6;
+    padding-top: 50px;
+    text-align: center;
+}
+
+a {
+    color: rgb(1, 1, 175);
+    display: block;
+    font-size: 26px;
+    text-decoration: none;
+}
