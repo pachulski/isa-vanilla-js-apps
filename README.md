@@ -13,3 +13,5 @@ Prosty kalkulator z możliwością wpisywania dłuższych formuł matematycznych
 ### Tic Tac Toe
 
 Podstawowa wersja gry wzbogacona o 'restart button' i możliwość śledzenia wyników
+
+2020/09/11 - Gra skończona zgodnie z założeniami
