@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #013d32;
+    display: grid;
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    height: 100vh;
+    place-items: center;
+}
+
+canvas {
+    background: #eee;
+    display: block;
+    margin: 0 auto;
+}
+
+.copyright {
+    color: darkcyan;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-top: 20px;
+    text-align: center;
+}
+
+a {
+    color: rgb(128, 146, 146);
+    font-size: 16px;
+    text-decoration: none;
+}

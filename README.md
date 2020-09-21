@@ -15,3 +15,7 @@ Prosty kalkulator z możliwością wpisywania dłuższych formuł matematycznych
 Podstawowa wersja gry wzbogacona o 'restart button' i możliwość śledzenia wyników
 
 2020/09/11 - Gra skończona zgodnie z założeniami
+
+### Breakout 2D
+
+Prosta gra Breakout 2D na podstawie poradnika ze strony MDN
