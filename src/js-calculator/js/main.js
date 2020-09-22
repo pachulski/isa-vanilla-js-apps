@@ -12,31 +12,33 @@ const operatorsArr = ['/', '*', '-', '+'];
 const parser = math.parser();
 
 function exButtonHandleClick(e) {
-    e.preventDefault();
-    const buttonText = e.target.textContent;
-    let exFieldLastMark = exField.textContent[exField.textContent.length - 1];
-    const exFieldLastMarkIsOperator = operatorsArr.includes(exFieldLastMark);
-    const buttonTextIsOperator = operatorsArr.includes(buttonText);
+  e.preventDefault();
+  const buttonText = e.target.textContent;
+  const exFieldLastMark = exField.textContent[exField.textContent.length - 1];
+  const exFieldLastMarkIsOperator = operatorsArr.includes(exFieldLastMark);
+  const buttonTextIsOperator = operatorsArr.includes(buttonText);
 
-    if (!exFieldLastMarkIsOperator || !buttonTextIsOperator) {
-        exField.textContent += `${buttonText}`;
-    }
+  if (!exFieldLastMarkIsOperator || !buttonTextIsOperator) {
+    exField.textContent += `${buttonText}`;
+  }
 }
 
 function eqButtonHandleClick(e) {
-    e.preventDefault();
-    resultField.textContent = parser.evaluate(exField.textContent);
-    exField.textContent = resultField.textContent;
+  e.preventDefault();
+  resultField.textContent = parser.evaluate(exField.textContent);
+  exField.textContent = resultField.textContent;
 }
 
 function acButtonHandleClick(e) {
-    e.preventDefault();
-    exField.textContent = '';
-    resultField.textContent = '0';
+  e.preventDefault();
+  exField.textContent = '';
+  resultField.textContent = '0';
 }
 
 // Event Listeners
 
-exButtons.forEach(button => button.addEventListener('click', exButtonHandleClick));
+exButtons.forEach((button) =>
+  button.addEventListener('click', exButtonHandleClick)
+);
 eqButton.addEventListener('click', eqButtonHandleClick);
 acButton.addEventListener('click', acButtonHandleClick);

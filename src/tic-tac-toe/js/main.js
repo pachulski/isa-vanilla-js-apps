@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-plusplus */
 // Elements
 
 const get = (...args) => document.querySelector(...args);
@@ -14,14 +16,14 @@ const squares = Array.from(getAll('.square'));
 // Constants
 
 const winningConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
 ];
 
 // Variables
@@ -33,64 +35,66 @@ let win;
 // Functions
 
 function renderState() {
-    board.forEach((mark, index) => squares[index].textContent = mark);
-    if (!win) {
-        if (currentPlayer === 'X') {
-            playerX.style.color = 'red';
-            playerO.style.color = 'black';
-        } else {
-            playerX.style.color = 'black';
-            playerO.style.color = 'red';
-        }
+  board.forEach((mark, index) => (squares[index].textContent = mark));
+  if (!win) {
+    if (currentPlayer === 'X') {
+      playerX.style.color = 'red';
+      playerO.style.color = 'black';
+    } else {
+      playerX.style.color = 'black';
+      playerO.style.color = 'red';
     }
+  }
 
-    if (win === 'X') {
-        resultX.textContent++;
-    }
-    if (win === 'O') {
-        resultO.textContent++;
-    }
+  if (win === 'X') {
+    resultX.textContent++;
+  }
+  if (win === 'O') {
+    resultO.textContent++;
+  }
 
-    win || !board.includes('') ? gameBoard.removeEventListener('click', handleTurn) : null;
+  win || !board.includes('')
+    ? gameBoard.removeEventListener('click', handleTurn)
+    : null;
 }
 
 function checkWin() {
-    let winner = null;
-    winningConditions.forEach(condition => {
-        if (board[condition[0]] && board[condition[0]] === board[condition[1]] && board[condition[0]] === board[condition[2]]) {
-            winner = board[condition[0]];
-        }
-    });
+  let winner = null;
+  winningConditions.forEach((condition) => {
+    if (
+      board[condition[0]] &&
+      board[condition[0]] === board[condition[1]] &&
+      board[condition[0]] === board[condition[2]]
+    ) {
+      winner = board[condition[0]];
+    }
+  });
 
-    return winner;
+  return winner;
 }
 
 function handleTurn(e) {
-    let index = squares.findIndex(square => square === e.target);
-    if (board[index] === '') {
-        board[index] = currentPlayer;
-    }
+  const index = squares.findIndex((square) => square === e.target);
+  if (board[index] === '') {
+    board[index] = currentPlayer;
+  }
 
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 
-    win = checkWin();
+  win = checkWin();
 
-    renderState();
+  renderState();
 }
 
 function start() {
-    board = [
-        '', '', '',
-        '', '', '',
-        '', '', '',
-    ];
+  board = ['', '', '', '', '', '', '', '', ''];
 
-    currentPlayer = 'X';
-    win = null;
+  currentPlayer = 'X';
+  win = null;
 
-    gameBoard.addEventListener('click', handleTurn);
+  gameBoard.addEventListener('click', handleTurn);
 
-    renderState();
+  renderState();
 }
 
 start();
