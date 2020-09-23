@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const canvas = document.querySelector('.myCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -38,11 +39,20 @@ function draw() {
 
   x += dx;
   y += dy;
+
   if (x + dx < ballRadius || x + dx > canvas.width - ballRadius) {
     dx = -dx;
   }
-  if (y + dy < ballRadius || y + dy > canvas.height - ballRadius) {
+  if (y + dy < ballRadius) {
     dy = -dy;
+  } else if (y + dy > canvas.height - ballRadius) {
+    if (x > paddleX && x < paddleX + paddleWidth) {
+      dy = -dy;
+    } else {
+      alert('GAME OVER');
+      document.location.reload();
+      clearInterval(interval);
+    }
   }
 
   if (leftPressed) {
@@ -57,9 +67,6 @@ function draw() {
     }
   }
 }
-
-document.addEventListener('keydown', keyDownHandler, false);
-document.addEventListener('keyup', keyUpHandler, false);
 
 function keyDownHandler(e) {
   if (e.key === 'Right' || e.key === 'ArrowRight') {
@@ -77,4 +84,7 @@ function keyUpHandler(e) {
   }
 }
 
-setInterval(draw, 10);
+document.addEventListener('keydown', keyDownHandler, false);
+document.addEventListener('keyup', keyUpHandler, false);
+
+const interval = setInterval(draw, 10);
