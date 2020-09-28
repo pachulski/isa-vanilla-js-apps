@@ -29,22 +29,24 @@ const bricks = Array.from(
   (column) =>
     (column = Array.from(
       { length: brickRowCount },
-      (brick) => (brick = { x: 0, y: 0 })
+      (brick) => (brick = { x: 0, y: 0, status: 1 })
     ))
 );
 
 const drawBricks = () => {
   bricks.map((column, c) =>
     column.map((brick, r) => {
-      const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
-      const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
-      brick.x = brickX;
-      brick.y = brickY;
-      ctx.beginPath();
-      ctx.rect(brickX, brickY, brickWidth, brickHeight);
-      ctx.fillStyle = '#0095DD';
-      ctx.fill();
-      ctx.closePath();
+      if (brick.status === 1) {
+        const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+        const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+        brick.x = brickX;
+        brick.y = brickY;
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = '#0095DD';
+        ctx.fill();
+        ctx.closePath();
+      }
     })
   );
 };
@@ -65,11 +67,30 @@ function drawBall() {
   ctx.closePath();
 }
 
+const collisionDetection = () => {
+  bricks.forEach((column) =>
+    column.forEach((brick) => {
+      if (brick.status === 1) {
+        if (
+          x > brick.x &&
+          x < brick.x + brickWidth &&
+          y > brick.y &&
+          y < brick.y + brickHeight
+        ) {
+          dy = -dy;
+          brick.status = 0;
+        }
+      }
+    })
+  );
+};
+
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
   drawBall();
   drawPaddle();
+  collisionDetection();
 
   x += dx;
   y += dy;
@@ -79,7 +100,7 @@ function draw() {
   }
   if (y + dy < ballRadius) {
     dy = -dy;
-  } else if (y + dy > canvas.height - ballRadius - paddleHeight) {
+  } else if (y + dy > canvas.height - ballRadius - paddleHeight / 2) {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
     } else {
