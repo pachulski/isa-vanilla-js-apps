@@ -24,13 +24,14 @@ const brickPadding = 10;
 const brickOffsetTop = 30;
 const brickOffsetLeft = 30;
 
-const bricks = Array.from(
-  { length: brickColumnCount },
-  (column) =>
-    (column = Array.from(
-      { length: brickRowCount },
-      (brick) => (brick = { x: 0, y: 0, status: 1 })
-    ))
+let score = 0;
+
+const bricks = Array.from({ length: brickColumnCount }, () =>
+  Array.from({ length: brickRowCount }, () => ({
+    x: 0,
+    y: 0,
+    status: 1,
+  }))
 );
 
 const drawBricks = () => {
@@ -79,10 +80,22 @@ const collisionDetection = () => {
         ) {
           dy = -dy;
           brick.status = 0;
+          score += 1;
+          if (score === brickColumnCount * brickRowCount) {
+            alert('YOU WIN, CONGRATULATIONS!');
+            document.location.reload();
+            clearInterval(interval);
+          }
         }
       }
     })
   );
+};
+
+const drawScore = () => {
+  ctx.font = '16px Arial';
+  ctx.fillStyle = '#0095DD';
+  ctx.fillText(`Score: ${score}`, 8, 20);
 };
 
 function draw() {
@@ -90,6 +103,7 @@ function draw() {
   drawBricks();
   drawBall();
   drawPaddle();
+  drawScore();
   collisionDetection();
 
   x += dx;
