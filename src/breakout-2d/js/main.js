@@ -16,6 +16,39 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 let leftPressed = false;
 let rightPressed = false;
 
+const brickRowCount = 3;
+const brickColumnCount = 5;
+const brickWidth = 75;
+const brickHeight = 20;
+const brickPadding = 10;
+const brickOffsetTop = 30;
+const brickOffsetLeft = 30;
+
+const bricks = Array.from(
+  { length: brickColumnCount },
+  (column) =>
+    (column = Array.from(
+      { length: brickRowCount },
+      (brick) => (brick = { x: 0, y: 0 })
+    ))
+);
+
+const drawBricks = () => {
+  bricks.map((column, c) =>
+    column.map((brick, r) => {
+      const brickX = c * (brickWidth + brickPadding) + brickOffsetLeft;
+      const brickY = r * (brickHeight + brickPadding) + brickOffsetTop;
+      brick.x = brickX;
+      brick.y = brickY;
+      ctx.beginPath();
+      ctx.rect(brickX, brickY, brickWidth, brickHeight);
+      ctx.fillStyle = '#0095DD';
+      ctx.fill();
+      ctx.closePath();
+    })
+  );
+};
+
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
@@ -34,8 +67,9 @@ function drawBall() {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawPaddle();
+  drawBricks();
   drawBall();
+  drawPaddle();
 
   x += dx;
   y += dy;
@@ -45,7 +79,7 @@ function draw() {
   }
   if (y + dy < ballRadius) {
     dy = -dy;
-  } else if (y + dy > canvas.height - ballRadius) {
+  } else if (y + dy > canvas.height - ballRadius - paddleHeight) {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
     } else {
