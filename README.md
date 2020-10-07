@@ -29,14 +29,14 @@ Fairly simple calculator with a possibility to input longer mathematical express
 
 [JS Calculator](https://pachulski.github.io/jfddr1-project-2/src/js-calculator/index.html) - direct link to the calculator website
 
-<br><div style="text-align:center"><img src="img/js-calc.png" alt="screenshot of calculator" width="200"/></div><br>
+<br><div align="center"><img src="img/js-calc.png" alt="screenshot of calculator" width="200"/></div><br>
 
 ### Tic Tac Toe
 A basic version of the Tic Tac Toe game. Restart button allows to clean the board and play more than one round. Score board allows to track score during an open session. The score board resets to '0-0' after page refresh.
 
 [Tic Tac Toe](https://pachulski.github.io/jfddr1-project-2/src/tic-tac-toe/index.html) - direct link to the Tic Tac Toe website
 
-<br><div style="text-align:center"><img src="img/tic-tac-toe.png" alt="screenshot of tic tac toe" width="200"/></div><br>
+<br><div align="center"><img src="img/tic-tac-toe.png" alt="screenshot of tic tac toe" width="200"/></div><br>
 
 ### Breakout 2D
 A simple breakout game written entirely in Vanilla JavaScript and rendered on HTML5 canvas element. Player has 3 lives before game over. Number of lives is displayed on the canvas. Game also tracks score and displays it on the canvas. Player gets 1 point per each brick hit.
@@ -45,13 +45,12 @@ The game was coded based on the [MDN tutorial](https://developer.mozilla.org/pl/
 
 [Breakout 2D](https://pachulski.github.io/jfddr1-project-2/src/breakout-2d/index.html) - direct link to the Breakout 2D website
 
-<br><div style="text-align:center"><img src="img/breakout-2d.png" alt="screenshot of breakout 2d" width="300"/></div><br>
+<br><div align="center"><img src="img/breakout-2d.png" alt="screenshot of breakout 2d" width="300"/></div><br>
 
 ## Status
 Project is: _finished_ (with possible upgrades in the future)
 
 ## Contact
-Feel free to contact me!
-
 <a href="mailto:radoslaw.pachulski@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-radoslaw.pachulski@gmail.com-blue?logo=gmail"></a>
 </p>
+Feel free to contact me!
